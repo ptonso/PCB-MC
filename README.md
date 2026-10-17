@@ -97,9 +97,9 @@ The dataset is not bundled in this repository. Download it from the 4TU deposit:
 python data/download.py --output ./data/PCB-MC
 ```
 
-This resolves the dataset DOI via the 4TU.ResearchData / djehuty API (Figshare v2
-compatible: `POST /v2/articles/search` by DOI, then `GET /v2/articles/{id}/files`) and
-streams each file down with checksum verification. **The dataset is now published**
+This resolves the dataset DOI through the 4TU.ResearchData v3 API (the dataset's
+`ro-crate-metadata.json` lists the files and their download URLs) and
+streams each file down. **The dataset is now published**
 (4TU.ResearchData, 2026-08-10, DOI [10.4121/7c6e5bda-eecf-4feb-8a3a-7f823b1b0140.v1](https://doi.org/10.4121/7c6e5bda-eecf-4feb-8a3a-7f823b1b0140.v1)),
 so `download.py` should resolve and stream it directly. Note the deposit ships as a single
 archive, `PCB_MC.zip` (3.77 GB, MD5 `1533d1ca6d54c37b19c1a94297c0745c`) — `download.py`
