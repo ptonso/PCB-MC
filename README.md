@@ -94,7 +94,7 @@ anomalib versions, so don't upgrade this pin without re-checking those import pa
 The dataset is not bundled in this repository. Download it from the 4TU deposit:
 
 ```bash
-python data/download.py --output ./data/PCB-MC
+python data/download.py --output ./data --md5 1533d1ca6d54c37b19c1a94297c0745c --extract
 ```
 
 This resolves the dataset DOI through the 4TU.ResearchData v3 API (the dataset's
@@ -102,9 +102,9 @@ This resolves the dataset DOI through the 4TU.ResearchData v3 API (the dataset's
 streams each file down. **The dataset is now published**
 (4TU.ResearchData, 2026-08-10, DOI [10.4121/7c6e5bda-eecf-4feb-8a3a-7f823b1b0140.v1](https://doi.org/10.4121/7c6e5bda-eecf-4feb-8a3a-7f823b1b0140.v1)),
 so `download.py` should resolve and stream it directly. Note the deposit ships as a single
-archive, `PCB_MC.zip` (3.77 GB, MD5 `1533d1ca6d54c37b19c1a94297c0745c`) — `download.py`
-downloads it as-is but doesn't unzip it yet, so extract it manually into `data/PCB-MC/`
-matching the structure below.
+archive, `PCB_MC.zip` (3.77 GB, MD5 `1533d1ca6d54c37b19c1a94297c0745c`). `--md5` verifies
+the download and `--extract` unzips it into `--output`, which yields the structure below
+(rooted at `PCB_MC/` instead of `PCB-MC/`).
 
 Expected structure after download (this is the published 4TU layout — see
 `docs/dataset_package_README.md` for the authoritative version bundled with the data):
